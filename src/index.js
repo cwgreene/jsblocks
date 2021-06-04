@@ -1,4 +1,6 @@
+/** @type {HTMLCanvasElement} */
 let canvas;
+/** @type {CanvasRenderingContext2D} */
 let ctx;
 
 // globals
@@ -18,6 +20,11 @@ function init() {
     draw_grid(grid);
 }
 
+/**
+ * 
+ * @param {MouseEvent} e 
+ * @param {HTMLCanvasElement} canvas
+ */
 function mouse_to_grid(e, canvas) {
     const x = e.offsetX;
     const y = e.offsetY;
@@ -28,6 +35,11 @@ function mouse_to_grid(e, canvas) {
     return [grid_x, grid_y];
 }
 
+/**
+ * 
+ * @param {MouseEvent} e 
+ * @param {HTMLCanvasElement} canvas
+ */
 function canvas_click(e, canvas) {
     const [x,y] = mouse_to_grid(e, canvas);
     console.log(x,y);
@@ -35,6 +47,10 @@ function canvas_click(e, canvas) {
     draw_grid(grid);
 }
 
+/**
+ * 
+ * @param {int[][]} grid 
+ */
 function init_grid(grid) {
     for(let i = 0; i < grid_count_x; i++) {
         grid[i] = [];
@@ -45,6 +61,10 @@ function init_grid(grid) {
     grid[3][3]=1;
 }
 
+/**
+ * 
+ * @param {int[][]} grid 
+ */
 function draw_grid(grid) {
 
     const delta_x = Math.floor((canvas.width) / grid_count_x);
